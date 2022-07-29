@@ -1,0 +1,63 @@
+<template>
+  <div class="home">
+    <div class="main">
+      <div class="stories">
+        <Story />
+      </div>
+      <div class="posts">
+        <Post />
+      </div>
+    </div>
+    <div class="recommend">
+      <Recommend/>
+    </div>
+  </div>
+</template>
+
+<script>
+import Recommend from '../components/Recommend.vue'
+import Story from '../components/Story.vue'
+import Post from '../components/Post.vue'
+export default {
+  name: 'HomeView',
+  components: {
+    Recommend,
+    Story,
+    Post
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.home{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.main{
+  width: 470px;
+  height: 100%;
+  margin-right: 16px;
+}
+.stories{
+  width: 100%;
+  height: 120px;
+  background: red;
+  margin-bottom: 10px;
+}
+.posts{
+  width: 100%;
+  height: 350px;
+  background: blue;
+}
+.recommend{
+  width: 320px;
+  height: 150px;
+}
+
+@media screen and (max-width: 800px) {
+.recommend{
+  display: none;
+}
+}
+</style>
