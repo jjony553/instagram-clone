@@ -10,6 +10,7 @@
     </div>
     <div class="recommend">
       <Recommend/>
+      <Footer />
     </div>
   </div>
 </template>
@@ -18,12 +19,14 @@
 import Recommend from '../components/Recommend.vue'
 import Story from '../components/Story.vue'
 import Post from '../components/Post.vue'
+import Footer from '../components/Footer.vue'
 export default {
   name: 'HomeView',
   components: {
     Recommend,
     Story,
-    Post
+    Post,
+    Footer,
   }
 }
 </script>
@@ -42,7 +45,6 @@ export default {
 .stories{
   width: 100%;
   height: 120px;
-  background: red;
   margin-bottom: 10px;
 }
 .posts{

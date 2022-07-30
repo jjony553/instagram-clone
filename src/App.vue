@@ -1,15 +1,18 @@
 <template>
   <Header/>
+  <AddPost v-if="isAddPost"/>
   <router-view/>
 </template>
 <script>
 import Header from './components/Header.vue'
+import AddPost from './components/AddPost.vue'
 export default {
   setup() {
-    
+
   },
   components:{
-    Header
+    Header,
+    AddPost
   }
 }
 </script>

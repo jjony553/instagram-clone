@@ -9,9 +9,20 @@
       </div>
       <div class="link">
         <ul class="menu">
-          <li><i class="fa-solid fa-house"></i></li>
-          <li><i class="fa-regular fa-paper-plane"></i></li>
-          <li><i class="fa-regular fa-square-plus"></i></li>
+          <li>
+            <router-link to="/">
+              <i class="fa-solid fa-house"></i>
+            </router-link>
+          </li>
+          <li>
+              <router-link to="/direct">
+                <i class="fa-regular fa-paper-plane"></i>
+              </router-link>
+            </li>
+          <li>
+            <i class="fa-regular fa-square-plus" @click="openAddPost">
+            </i>
+          </li>
           <li><i class="fa-regular fa-compass"></i></li>
           <li><i class="fa-regular fa-heart"></i></li>
           <li><div class="profile"><img src="https://img.sportsworldi.com/content/image/2021/09/18/20210918505684.PNG" alt=""></div></li>
@@ -23,7 +34,18 @@
 
 <script>
 export default {
+  setup(){
+    let isAddPost = false
 
+    function openAddPost(){
+      isAddPost = true
+    }
+    
+    return{
+      isAddPost,
+      openAddPost
+    }
+  },
 }
 </script>
 
@@ -32,6 +54,7 @@ export default {
   width: 100%;
   margin: 0;
   padding: 0;
+  border: 1px solid #bdbdbd;
   .navbar{
     width: 100%;
     height: 50px;
@@ -65,7 +88,7 @@ export default {
           margin-left: auto;
           margin-right: auto;
         }
-        .i{
+        i{
           width: 24px;
           height: 24px;
           color: #262626;
