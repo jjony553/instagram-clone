@@ -49,8 +49,7 @@ export default {
 }
 .posts{
   width: 100%;
-  height: 350px;
-  background: blue;
+  height: 100%;
 }
 .recommend{
   width: 320px;
