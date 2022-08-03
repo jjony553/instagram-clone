@@ -55,6 +55,7 @@ export default {
   margin: 0;
   padding: 0;
   border: 1px solid #bdbdbd;
+  margin-bottom: 16px;
   .navbar{
     width: 100%;
     height: 50px;
@@ -76,6 +77,16 @@ export default {
     .search{
       padding-left: 60px;
       padding-right: 60px;
+      input{
+      width: 240px;
+      outline : none;
+      border: 1px transparent;
+      background: #efefef;
+      padding: 10px;
+      border-radius: 5px;
+
+      }
+      
     }
     .link{
       .menu{

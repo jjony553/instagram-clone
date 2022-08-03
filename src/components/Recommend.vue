@@ -37,6 +37,7 @@ export default {
     display: flex;
     flex-direction: row;
     position: relative;
+    margin-bottom: 10px;
     img{
         width: 45px;
         height: 45px;
@@ -50,9 +51,13 @@ export default {
 
         .id{
             color: #262626;
+            font-size: 14px;
+            font-weight: 700;
         }
         .name{
             color: #8e8e8e;
+            font-size: 14px;
+            font-weight: 500;
         }
     }
     .shift{
@@ -61,19 +66,28 @@ export default {
         right: 0;
         transform: translateY(-50%);
         color: #0095f6;
+        font-size: 12px;
+        font-weight: 600;
     }
 }
 
 .text{
     height: 20px;
    position: relative;
+   margin-bottom: 10px;
    .recommend{
     position: absolute;
     left: 0;
+    color:#8e8e8e;
+    font-size: 14px;
+    font-weight: 600;
    }
    .all{
     position: absolute;
     right: 0;
+     color:#262626;
+    font-size: 12px;
+    font-weight: 700;
    }
 }
 
@@ -83,8 +97,8 @@ export default {
     position: relative;
 
     img{
-        width: 30px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
     }
     .info{
@@ -95,10 +109,13 @@ export default {
         text-align: left;
 
         .id{
-            color: #262626;;
+            color: #262626;
+            font-size: 14px;
+
         }
         .content{
             color: #8e8e8e;
+            font-size: 12px;
         }
     }
     .follow{
@@ -107,6 +124,8 @@ export default {
         right: 0;
         transform: translateY(-50%);
         color: #0095f6;
+        font-size: 12px;
+        font-weight: 500;
     }
 }
 }
