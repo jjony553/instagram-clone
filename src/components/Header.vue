@@ -20,7 +20,7 @@
               </router-link>
             </li>
           <li>
-            <i class="fa-regular fa-square-plus" @click="openAddPost">
+            <i class="fa-regular fa-square-plus" @click="openAddPost" >
             </i>
           </li>
           <li><i class="fa-regular fa-compass"></i></li>
@@ -33,19 +33,17 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
-  setup(){
-    let isAddPost = false
-
-    function openAddPost(){
-      isAddPost = true
-    }
-    
+  emits:['openAddPost'],
+  setup(props, { emit }){
+    const openAddPost = () => emit('openAddPost')
     return{
-      isAddPost,
       openAddPost
     }
   },
+  components:{
+  }
 }
 </script>
 
@@ -103,6 +101,7 @@ export default {
           width: 24px;
           height: 24px;
           color: #262626;
+          font-size: 20px;
         }
         .profile{
           img{
