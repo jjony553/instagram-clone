@@ -4,8 +4,9 @@
       <div class="logo">
         <img src="../assets/logo.png" alt="">
       </div>
-      <div class="search">
+      <div class="search" @click="openSearchOpen">
         <input type="text" placeholder=" 검색">
+        <SearchList v-if="isSearchOpen"/>
       </div>
       <div class="link">
         <ul class="menu">
@@ -25,7 +26,12 @@
           </li>
           <li><i class="fa-regular fa-compass"></i></li>
           <li><i class="fa-regular fa-heart"></i></li>
-          <li><div class="profile"><img src="https://img.sportsworldi.com/content/image/2021/09/18/20210918505684.PNG" alt=""></div></li>
+          <li>
+            <div class="profile">
+              <img src="https://img.sportsworldi.com/content/image/2021/09/18/20210918505684.PNG" alt="" @click="openProfileMenu">
+              <ProfileMenu v-if="isOpen" />
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
@@ -34,15 +40,36 @@
 
 <script>
 import { ref } from 'vue'
+import ProfileMenu from './ProfileMenu.vue'
+import SearchList from './SearchList.vue'
 export default {
   emits:['openAddPost'],
   setup(props, { emit }){
     const openAddPost = () => emit('openAddPost')
+
+    let isOpen = ref(false)
+    let isSearchOpen = ref(false)
+    
+    function openProfileMenu(){
+        isOpen.value = !isOpen.value
+    }
+
+    function openSearchOpen(){
+        isSearchOpen.value = !isSearchOpen.value
+    }
+
+
     return{
-      openAddPost
+      openAddPost,
+      isOpen,
+      openProfileMenu,
+      isSearchOpen,
+      openSearchOpen
     }
   },
   components:{
+    ProfileMenu,
+    SearchList
   }
 }
 </script>
@@ -75,6 +102,7 @@ export default {
     .search{
       padding-left: 60px;
       padding-right: 60px;
+      position: relative;
       input{
       width: 240px;
       outline : none;
@@ -96,6 +124,7 @@ export default {
           text-align: center;
           margin-left: auto;
           margin-right: auto;
+          cursor: pointer;
         }
         i{
           width: 24px;
@@ -104,6 +133,9 @@ export default {
           font-size: 20px;
         }
         .profile{
+          display: flex;
+          flex-direction: column;
+          position: relative;
           img{
             width: 22px;
             height: 22px;
