@@ -2,12 +2,19 @@
   <div class="header">
     <nav class="navbar">
       <div class="logo">
-        <img src="../assets/logo.png" alt="">
+        <router-link to="/">
+          <img src="../assets/logo.png" alt="">
+        </router-link>
       </div>
-      <div class="search" @click="openSearchOpen">
-        <input type="text" placeholder=" 검색">
-        <SearchList v-if="isSearchOpen"/>
-      </div>
+          <form class="search" @click="openSearchOpen">
+            <label>
+                <i class="fa-solid fa-search">
+                </i>
+                <input type="text" placeholder="검색" >
+                <button class="cancel">x</button>
+            </label>
+            <SearchList v-if="isSearchOpen"/>
+        </form>
       <div class="link">
         <ul class="menu">
           <li>
@@ -25,7 +32,14 @@
             </i>
           </li>
           <li><i class="fa-regular fa-compass"></i></li>
-          <li><i class="fa-regular fa-heart"></i></li>
+          <li>
+            <div class="heart">
+              <i class="fa-regular fa-heart" @click="openHeartOpen">
+              </i>
+              <HeartAlarm v-if="isHeartOpen"/>
+            </div>
+
+          </li>
           <li>
             <div class="profile">
               <img src="https://img.sportsworldi.com/content/image/2021/09/18/20210918505684.PNG" alt="" @click="openProfileMenu">
@@ -42,6 +56,7 @@
 import { ref } from 'vue'
 import ProfileMenu from './ProfileMenu.vue'
 import SearchList from './SearchList.vue'
+import HeartAlarm from './HeartAlarm.vue'
 export default {
   emits:['openAddPost'],
   setup(props, { emit }){
@@ -49,6 +64,7 @@ export default {
 
     let isOpen = ref(false)
     let isSearchOpen = ref(false)
+    let isHeartOpen = ref(false)
     
     function openProfileMenu(){
         isOpen.value = !isOpen.value
@@ -57,6 +73,9 @@ export default {
     function openSearchOpen(){
         isSearchOpen.value = !isSearchOpen.value
     }
+    function openHeartOpen(){
+      isHeartOpen.value = !isHeartOpen.value
+    }
 
 
     return{
@@ -64,12 +83,15 @@ export default {
       isOpen,
       openProfileMenu,
       isSearchOpen,
-      openSearchOpen
+      openSearchOpen,
+      isHeartOpen,
+      openHeartOpen
     }
   },
   components:{
     ProfileMenu,
-    SearchList
+    SearchList,
+    HeartAlarm
   }
 }
 </script>
@@ -96,24 +118,63 @@ export default {
       padding-right: 200px;
       img{
         width: 100px;
-        height: 30px;
+        height: 45px;
       }
     }
     .search{
-      padding-left: 60px;
-      padding-right: 60px;
-      position: relative;
-      input{
-      width: 240px;
-      outline : none;
-      border: 1px transparent;
-      background: #efefef;
-      padding: 10px;
-      border-radius: 5px;
+        width: 270px;
+        position: relative;
+        label{
+            display: flex;
+            align-items: center;
+            background: #efefef;
+            padding: 8px 12px;
+            border-radius: 8px;
+            overflow: hidden;
+            i{
+                flex: 0 0 auto;
+                color: #c8c8c8;
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+            }
+            input{
+                flex: 1 0 auto;
+                background: #efefef;
+                color: #c8c8c8;
+                padding: 0px;
+                border: 0px;
+                outline: none;
+                margin: 0px;
+                appearance: none;
+                font-size: 15px;
+                font-weight: 400;
+                letter-spacing: 0px;
+                line-height: 20px;
+            }
+            .cancel{
+                flex: 0 0 auto;
+                color: black;
+                width: 20px;
+                height: 20px;
+                margin-left: 8px;
+                cursor: pointer;
+                border-radius: 50%;
+                font-size: 12px;
+                padding: 2px;
+                background: #c8c8c8;
+                border: 1px solid transparent;
+            }
+        }
 
-      }
+    }
+
+    .heart{
+      position: relative;
       
     }
+
+
     .link{
       .menu{
         display: flex;

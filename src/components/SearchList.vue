@@ -16,8 +16,8 @@ export default {
 <style lang="scss" scoped>
 .search-list{
     position: absolute;
-    right: 5px;
-    top: 43px;
+    left: -50px;
+    top: 50px;
     width: 370px;
     height: 360px;
     background: #fff;
